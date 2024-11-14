@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="wish.css" type="text/css">
+    <script defer src="wis.js"></script>
+</head>
+<body>
+    <section class="darkestPeach">
+        <div class="hidden">
+            <!-- Play Button with Text Above -->
+            <div class="playButtonWrapper">
+                <p class="playText">Click me 1st</p>
+                <button id="playButton" class="playButton">
+                    <span class="playIcon">&#9654;</span> <!-- Play icon -->
+                </button>
+            </div>
+            <img src="https://gifimage.net/wp-content/uploads/2017/10/dancing-cat-gif.gif">
+        </div>
+        <div class="hidden">
+            <h1>Happy Birthday Gulab Danam!</h1>
+            <p>Even though I haven't met you in person yet, I wanted to do something for you. I hope you'll like this.</p>
+            <p>scroll down :D</p>
+        </div>
+        <!-- Added Image below the text section -->
+        <div class="hidden">
+            <img class="hidden" src="assets/hbd.jpeg">
+        </div>
+    </section>
+    <section class="darkPeach">
+        <div class="hidden">
+            <h1>Zaazu!</h1>
+            <p>I wanted to tell you that you are a good person. A best child and pride of your parents, a best brother of your siblings and a best friend!</p>
+            <br>
+            <h1>Mmm Russ Gulla</h1>
+            <p>You are a russ gulla with Haseen eyes so far hehe meri pyari ankhon wali bchoOo :o</p>
+        </div>
+        <img class="hidden" src="assets/russs.jpeg" class="awards">
+    </section>
+    <section class="peach">
+        <div class="hidden">
+            <h1>You're a lovely being!</h1>
+            <p>TBH, you look perfect in my eyes. You are not only lovable, but also affable, lovely, and undeniably the cutest, exuding wholesomeness the way</p>
+            <p> you are zaleeli habibti. I only wish there was a magic wand to take away all your worries and pain. But even that wouldn't be enough to truly  </p>
+             <p>appreciate all that you've sacrificed and continue to sacrifice to make your loved ones proud. I may not have much, but I’ve made this small </p>
+             <p>effort as a token of appreciation for everything you are and do...</p>
+        </div>
+        <img class="hidden" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExajVncmZja2xxNzIxbHBlMTQ5eGM2cjRjNncyN205dXpmdWpoY3ZrYSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ZBQhoZC0nqknSviPqT/giphy.gif">
+    </section>
+    <section class="lightPeach">
+        <div class="hidden">
+            <h1>One word, <span>Love of my life</span></h1>
+            <p>That's the word I would use to describe you...</p>
+        </div>
+        <img class="hidden" src="assets/loml.jpeg">
+    </section>
+    <section class="final">
+        <h1 class="move">I love You!</h1>
+        <img class="hidden" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExajVncmZja2xxNzIxbHBlMTQ5eGM2cjRjNncyN205dXpmdWpoY3ZrYSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Yle9Yz9izeVRyiwavn/giphy.gif">
+
+        <!-- Audio element -->
+        <audio id="birthdaySong" src="assets/bi%20saraha.mp3"></audio>
+    </section>
+
+    <script>
+        const playButton = document.getElementById("playButton");
+        const audio = document.getElementById("birthdaySong");
+        const playIcon = playButton.querySelector(".playIcon");
+
+        // Toggle audio play/pause on button click
+        playButton.addEventListener("click", () => {
+            if (audio.paused) {
+                audio.play();
+                playIcon.innerHTML = "⏸"; // Change to pause icon
+                playButton.classList.add("playing");
+            } else {
+                audio.pause();
+                playIcon.innerHTML = "▶"; // Change to play icon
+                playButton.classList.remove("playing");
+            }
+        });
+
+        const hiddenElements = document.querySelectorAll(".hidden");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                } else {
+                    entry.target.classList.remove('show');
+                }
+            });
+        });
+
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
